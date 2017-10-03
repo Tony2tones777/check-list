@@ -8,19 +8,18 @@
 </head>
 
 <body>
-  <h1> Check List </h1>
+   <h1> Check List </h1> 
   <div id="hide">
     <h3>This is hopefully a nice check out list thingy.</h3>
     <p id='remove'>First things first, hit the button</p>
     <input type="text" id='name'>
     <button id='try-it' onclick="nameFunction()"> go on try it </button>
-    <!-- <p id='yourname'></p>  -->
+    
   </div>
-
+  <button id='nameChange' class='center-this-button' onclick="hideFunction()"> happy with name </button>
   </br>
-  <!-- <h3 id='yourname'></h3> -->
+
   <p id='welcome'></p>
-  <button onclick="hideFunction()"> happy with name </button>
 
   <div class="inbox">
     <div class="item">
@@ -64,7 +63,7 @@
 
 <script>
   const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
-  
+
   let lastChecked;
 
   function handleCheck(e) {
@@ -75,11 +74,11 @@
 
       checkboxes.forEach(checkbox => {
         console.log(checkbox);
-        if(checkbox === this || checkbox === lastChecked){
+        if (checkbox === this || checkbox === lastChecked) {
           inBetween = !inBetween;
           console.log('start checkinmg them dawg');
         }
-        if(inBetween) {
+        if (inBetween) {
           checkbox.checked = true;
         }
       })
@@ -98,7 +97,7 @@
     if (username != null) {
       document.getElementById('try-it').innerHTML = "Change your name";
       document.getElementById('remove').innerHTML = "Hello " + username + "! How are you today? ";
-      document.getElementById('welcome').innerHTML = "Hello " + username + "! How are you today? ";
+      document.getElementById('welcome').innerHTML = "Hello " + username + "! What have you done today? ";
     } else if (username != username) {
       document.getElementById('yourname').innerHTML.clear();
     }
@@ -110,6 +109,7 @@
       x.style.display = 'block';
     } else {
       x.style.display = 'none';
+      document.getElementById('nameChange').innerHTML = "Change your name";
     }
   }
 
