@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Check list</title>
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+</head>
+
+<body>
+  <h1> Check List </h1>
+  <div id="hide">
+    <h3>This is hopefully a nice check out list thingy.</h3>
+    <p id='remove'>First things first, hit the button</p>
+    <input type="text" id='name'>
+    <button id='try-it' onclick="nameFunction()"> go on try it </button>
+    <!-- <p id='yourname'></p>  -->
+  </div>
+
+  </br>
+  <!-- <h3 id='yourname'></h3> -->
+  <p id='welcome'></p>
+  <button onclick="hideFunction()"> happy with name </button>
+
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an inbox layout.</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check one item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Hold down your Shift key</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check a lower item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Everything inbetween should also be set to checked</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Try do it with out any libraries</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Just regular JavaScript</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Good Luck!</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Don't forget to tweet your result!</p>
+    </div>
+  </div>
+</body>
+
+<script>
+  const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+  
+  let lastChecked;
+
+  function handleCheck(e) {
+    // check if they had the shift key down
+    //AND check that they are checking it
+    let inBetween = false;
+    if (e.shiftKey && this.checked) {
+
+      checkboxes.forEach(checkbox => {
+        console.log(checkbox);
+        if(checkbox === this || checkbox === lastChecked){
+          inBetween = !inBetween;
+          console.log('start checkinmg them dawg');
+        }
+        if(inBetween) {
+          checkbox.checked = true;
+        }
+      })
+
+
+    }
+
+    lastChecked = this;
+
+  }
+
+  checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+  //updates user name
+  function nameFunction() {
+    var username = document.getElementById('name').value;
+    if (username != null) {
+      document.getElementById('try-it').innerHTML = "Change your name";
+      document.getElementById('remove').innerHTML = "Hello " + username + "! How are you today? ";
+      document.getElementById('welcome').innerHTML = "Hello " + username + "! How are you today? ";
+    } else if (username != username) {
+      document.getElementById('yourname').innerHTML.clear();
+    }
+  }
+  //function hides the name change section
+  function hideFunction() {
+    var x = document.getElementById('hide');
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
+  }
+
+</script>
+
+</html>
