@@ -5,21 +5,24 @@
   <meta charset="UTF-8">
   <title>Check list</title>
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-   <h1> Check List </h1> 
+  <h1> Check List </h1>
   <div id="hide">
     <h3>This is hopefully a nice check out list thingy.</h3>
     <p id='remove'>First things first, hit the button</p>
     <input type="text" id='name'>
-    <button id='try-it' onclick="nameFunction()"> go on try it </button>
-    
+    <button id='try-it' onclick="nameFunction()"><i class="fa fa-address-card" aria-hidden="true"></i> go on try it </button>
+
   </div>
   <button id='nameChange' class='center-this-button' onclick="hideFunction()"> happy with name </button>
   </br>
 
   <p id='welcome'></p>
+
+  <button id='addTask' onclick="addTask()"> Add Task </button>
 
   <div class="inbox">
     <div class="item">
@@ -45,18 +48,6 @@
     <div class="item">
       <input type="checkbox">
       <p>Try do it with out any libraries</p>
-    </div>
-    <div class="item">
-      <input type="checkbox">
-      <p>Just regular JavaScript</p>
-    </div>
-    <div class="item">
-      <input type="checkbox">
-      <p>Good Luck!</p>
-    </div>
-    <div class="item">
-      <input type="checkbox">
-      <p>Don't forget to tweet your result!</p>
     </div>
   </div>
 </body>
@@ -110,7 +101,18 @@
     } else {
       x.style.display = 'none';
       document.getElementById('nameChange').innerHTML = "Change your name";
+
     }
+  }
+
+  //add a list item
+  function addTask() {
+    var inbox = document.getElementsByClassName('inbox');
+    var input= document.getElementsByClassName('item');
+    inbox.innerHTML = input.value;
+    input.value = "";
+
+    // .innerHTML = '<div class="item"><input type="checkbox"><p>Just regular JavaScript</p></div>'
   }
 
 </script>
