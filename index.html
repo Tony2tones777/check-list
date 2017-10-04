@@ -22,7 +22,7 @@
 
   <p id='welcome'></p>
 
-  <button id='addTask' onclick="addTask()"> Add Task </button>
+  <button id='addTask' onclick="addTask()"> Add Tasks </button>
 
   <div class="inbox">
     <div class="item">
@@ -108,7 +108,7 @@
   //add a list item
   function addTask() {
     var inbox = document.getElementsByClassName('inbox');
-    var input= document.getElementsByClassName('item');
+    var input = document.getElementsByClassName('item');
     inbox.innerHTML = input.value;
     input.value = "";
 
