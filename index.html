@@ -111,16 +111,6 @@
     }
   }
 
-  //add a list item
-  function addTask() {
-    var inbox = document.getElementsByClassName('inbox');
-    var input = document.getElementsByClassName('item');
-    inbox.innerHTML = input.value;
-    input.value = "";
-
-    // .innerHTML = '<div class="item"><input type="checkbox"><p>Just regular JavaScript</p></div>'
-  }
-
 //    <ul id="dynamic-list"></ul>
 
 // <input type="text" id="candidate"/>
@@ -132,24 +122,27 @@
 //     </div>
 
   function addItem(){
-	var div = document.getElementById("dynamic-list");
-  var candidate = document.getElementById("candidate");
+  // var div = document.getElementById("dynamic-list");
+  var div = document.createElement("div");
+  div.className = 'item';
   var input = document.createElement("input");
   input.type='checkbox';
-  var p = document.createElement('p');
-  input.setAttribute('id',candidate.value);
-  input.appendChild(document.createTextNode(candidate.value));
-  div.appendChild(input);
-  div.innerHTML += candidate.value;
-  candidate.value = "";
+  var candidate = document.getElementById("candidate");
+  
+  // var p = document.createElement('p');
+  // p.setAttribute('id',candidate.value);
+  // input.appendChild(document.createTextNode(candidate.value));
+  div.appendChild(div.align.);
+  // div.innerHTML += candidate.value;
+  // candidate.value = "";
 
 }
 
 function removeItem(){
-	var ul = document.getElementById("dynamic-list");
+	var div = document.getElementById("dynamic-list");
   var candidate = document.getElementById("candidate");
   var item = document.getElementById(candidate.value);
-  ul.removeChild(item);
+  div.removeChild(item);
 }
 
 </script>
